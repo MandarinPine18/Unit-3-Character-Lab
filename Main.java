@@ -48,12 +48,12 @@ class Main {
     int stealth;
     while (true) {
       try {
-        strength = Integer.parseInt(input("Strength: "));
-        brain = Integer.parseInt(input("Brain: "));
-        stealth = Integer.parseInt(input("Stealth: "));
+        strength = checkNum(Integer.parseInt(input("Strength: ")));
+        brain = checkNum(Integer.parseInt(input("Brain: ")));
+        stealth = checkNum(Integer.parseInt(input("Stealth: ")));
         break;
       } catch (IllegalArgumentException e) {
-        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer: ");
+        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. ");
       }
     }
     if (characterChoice == 1) {
@@ -63,9 +63,21 @@ class Main {
     } else if (characterChoice == 3) {
       character = new Warrior(name, strength, brain, stealth);
     } else {
+      // theoretically, this is impossible, but it's better to have a failsafe
+      character = new GameCharacter("", 0, 0, 0, 0, "");
       System.exit(1);
     }
 
+    System.out.println("\n" + character + "\n");
+
+    System.out.println("Now you can control your character. Acceptable commands are as follows:\n" +
+            "\"heal {num}\" - heals character, {num} must be an integer in range [0, 100]\n" +
+            "\"hurt {num}\" - hurts character, {num} must be an integer in range [0, 100]\n" +
+            "\"output\" - prints the details of the character\n" +
+            "\"exit\" - exits the program\n");
+    while (true) {
+      command(character);
+    }
   }
 
   // this makes it easier for me to accept input
@@ -73,5 +85,43 @@ class Main {
   private static String input(String prompt) {
     System.out.print(prompt);
     return input.nextLine();
+  }
+
+  private static void command(GameCharacter character) {
+    try {
+      String command = input(">");
+      int numValue;
+      if (command.startsWith("hurt")) {
+        numValue = Integer.parseInt(command.substring(5));
+        checkNum(numValue);
+        character.changeHealth(numValue * -1);
+        System.out.println(character.howMuchHealth());
+      } else if (command.startsWith("heal")) {
+        numValue = Integer.parseInt(command.substring(5));
+        checkNum(numValue);
+        character.changeHealth(numValue);
+        System.out.println(character.howMuchHealth());
+      } else if (command.startsWith("output")) {
+        System.out.println(character);
+      } else if (command.startsWith("exit")) {
+        System.out.println("Goodbye!");
+        System.exit(0);
+      } else {
+        throw new IllegalArgumentException();
+      }
+    } catch (NumberFormatException e) {
+      System.out.println("Try again, make sure if you use one of the health-changing functions, you type an integer in range [0, 100].\n");
+    } catch (IllegalArgumentException e) {
+      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"outp\", or \"exit\" and follow the first two with in integer in range [0, 100].");
+    }
+  }
+
+  // makes sure the number is in range [0, 100]
+  // it returns the int just for convenience
+  private static int checkNum(int num) {
+    if (num > 100 || num < 0) {
+      throw new NumberFormatException();
+    }
+    return num;
   }
 }

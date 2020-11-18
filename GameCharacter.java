@@ -43,4 +43,13 @@ public class GameCharacter {
     }
     return name + "'s health is " + status;
   }
+
+  public void changeHealth(int change) {
+    hp+=change;
+    if (hp < 0) {
+      hp = 0;
+    } else if(hp > 100) {
+      hp = 100;
+    }
+  }
 }
