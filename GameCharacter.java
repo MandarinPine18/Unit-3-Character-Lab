@@ -48,7 +48,7 @@ public class GameCharacter {
     hp+=change;
     if (hp < 0) {
       hp = 0;
-    } else if(hp > 100) {
+    } else if (hp > 100) {
       hp = 100;
     }
   }

@@ -42,10 +42,14 @@ class Main {
     //ask user for the name of the character and their attributes
     //make sure to call the correct constructor and apply the variables
     // in the proper order.
+    System.out.println("\nWhat is the name and attributes of your character?");
+
     String name = input("Name: ");
     int strength;
     int brain;
     int stealth;
+
+    System.out.println("\nFor the following attributes, please input an integer in range [0,100].");
     while (true) {
       try {
         strength = checkNum(Integer.parseInt(input("Strength: ")));
