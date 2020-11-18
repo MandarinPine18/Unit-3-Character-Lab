@@ -53,7 +53,7 @@ class Main {
         stealth = checkNum(Integer.parseInt(input("Stealth: ")));
         break;
       } catch (IllegalArgumentException e) {
-        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. ");
+        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. \n");
       }
     }
     if (characterChoice == 1) {
