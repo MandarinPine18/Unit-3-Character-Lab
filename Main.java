@@ -117,7 +117,7 @@ class Main {
     } catch (NumberFormatException e) {
       System.out.println("Try again, make sure if you use one of the health-changing functions, you type an integer in range [0, 100].\n");
     } catch (IllegalArgumentException e) {
-      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"outp\", or \"exit\" and follow the first two with in integer in range [0, 100].");
+      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with in integer in range [0, 100].");
     }
   }
 
