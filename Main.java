@@ -72,7 +72,8 @@ class Main {
       System.exit(1);
     }
 
-    System.out.println("\n" + character + "\n");
+    System.out.println("\n" + character);
+    System.out.println(character.howMuchHealth() + "\n");
 
     System.out.println("Now you can control your character. Acceptable commands are as follows:\n" +
             "\"heal {num}\" - heals character, {num} must be an integer in range [0, 100]\n" +
