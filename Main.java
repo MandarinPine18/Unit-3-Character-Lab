@@ -42,12 +42,24 @@ class Main {
     //ask user for the name of the character and their attributes
     //make sure to call the correct constructor and apply the variables
     // in the proper order.
-    System.out.println("\nWhat is the name and attributes of your character?");
+    System.out.println("\nWhat are the name and attributes of your character?");
 
-    String name = input("Name: ");
+    String name;
     int strength;
     int brain;
     int stealth;
+
+    while (true) {
+      try {
+        name = input("Name: ");
+        if (name.equals("")) {
+          throw new IllegalArgumentException();
+        }
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.println("You must enter a name. Try again.");
+      }
+    }
 
     System.out.println("\nFor the following attributes, please input an integer in range [0,100].");
     while (true) {
@@ -115,7 +127,7 @@ class Main {
         throw new IllegalArgumentException();
       }
     } catch (NumberFormatException e) {
-      System.out.println("Try again, make sure if you use one of the health-changing functions, you type an integer in range [0, 100].\n");
+      System.out.println("Try again, make sure if you use one of the health-changing functions, you type an integer in range [0, 100].");
     } catch (IllegalArgumentException e) {
       System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with in integer in range [0, 100].");
     }
