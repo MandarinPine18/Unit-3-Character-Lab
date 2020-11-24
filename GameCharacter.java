@@ -1,10 +1,10 @@
 public class GameCharacter {
-  private String name;
-  private int hp;
-  private int strength;
-  private int brain;
-  private int stealth;
-  private String weapon;
+  protected String name;
+  protected int hp;
+  protected int strength;
+  protected int brain;
+  protected int stealth;
+  protected String weapon;
   protected String type = "character";   // meant to be changed by subclass
 
   protected GameCharacter(String name, int strength, int brain, int stealth, int hp, String weapon) {
@@ -31,18 +31,10 @@ public class GameCharacter {
     return "a " + word;
   }
 
-  //add howMuchHealth method here.
+  // based on the specific wording of the directions, I left it to the subclasses to implement this method
   public String howMuchHealth() {
-    String status;
-    if (hp == 100) {
-      status = "full";
-    } else if (hp >= 50) {
-      status = "high";
-    } else {
-      status = "low";
-    }
-    return name + "'s health is " + status;
-  }
+    return "";
+  };
 
   public void changeHealth(int change) {
     hp+=change;

@@ -24,7 +24,6 @@ class Main {
       }
     }
 
-
     System.out.println("\nHello, " + username + ". Welcome to the character creator. Here, you can create any character you want! Let's go!");
     //ask which character they would like to create
     System.out.print("\nWhat character would you like to create? Options are:\n1. Elf\n2. Wizard\n3. Warrior\n(Enter 1, 2, or 3): ");
@@ -62,6 +61,7 @@ class Main {
     int brain;
     int stealth;
 
+    // name input checking
     while (true) {
       try {
         name = input("Name: ");
@@ -75,16 +75,38 @@ class Main {
     }
 
     System.out.println("\nFor the following attributes, please input an integer in range [0,100].");
+
+    // strength input checking
     while (true) {
       try {
         strength = checkNum(Integer.parseInt(input("Strength: ")));
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. \n");
+      }
+    }
+
+    // brain input checking
+    while (true) {
+      try {
         brain = checkNum(Integer.parseInt(input("Brain: ")));
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. \n");
+      }
+    }
+
+    // stealth input checking
+    while (true) {
+      try {
         stealth = checkNum(Integer.parseInt(input("Stealth: ")));
         break;
       } catch (IllegalArgumentException e) {
         System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. \n");
       }
     }
+
+    // initialize the object based on prior input
     if (characterChoice == 1) {
       character = new Elf(name, strength, brain, stealth);
     } else if (characterChoice == 2) {
@@ -97,9 +119,12 @@ class Main {
       System.exit(1);
     }
 
+    // print out the details of the new character
     System.out.println("\n" + character);
     System.out.println(character.howMuchHealth() + "\n");
 
+
+    // enter quasi-CLI interface
     System.out.println("Now you can control your character. Acceptable commands are as follows:\n" +
             "\"heal {num}\" - heals character, {num} must be an integer in range [0, 100]\n" +
             "\"hurt {num}\" - hurts character, {num} must be an integer in range [0, 100]\n" +
@@ -133,6 +158,7 @@ class Main {
         System.out.println(character.howMuchHealth());
       } else if (command.startsWith("output")) {
         System.out.println(character);
+        System.out.println(character.howMuchHealth());
       } else if (command.startsWith("exit")) {
         System.out.println("Goodbye!");
         System.exit(0);

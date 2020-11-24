@@ -3,4 +3,17 @@ class Elf extends GameCharacter {
     super(name, strength, brain, stealth, 100, "Bow");
     super.type = "Elf";
   }
+
+  @Override
+  public String howMuchHealth() {
+    String status;
+    if (hp == 100) {
+      status = "full";
+    } else if (hp >= 50) {
+      status = "high";
+    } else {
+      status = "low";
+    }
+    return name + "'s health is " + status;
+  }
 }
