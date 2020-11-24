@@ -129,7 +129,8 @@ class Main {
             "\"heal {num}\" - increases character's health, {num} must be an integer in range [0, 100]\n" +
             "\"hurt {num}\" - decreases character's health, {num} must be an integer in range [0, 100]\n" +
             "\"output\" - prints the details of the character\n" +
-            "\"exit\" - exits the program\n");
+            "\"exit\" - exits the program\n" +
+            "Note: Health will stay within range [0, 100]. Attempting to change health beyond this range will result in the health value being overridden to the closest value in range [0, 100].\n");
     while (true) {
       command(character);
     }

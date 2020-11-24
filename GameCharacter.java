@@ -36,6 +36,7 @@ public class GameCharacter {
     return "";
   };
 
+  // a getter which deals with overflow from range [0, 100] by overriding the value given
   public void changeHealth(int change) {
     hp+=change;
     if (hp < 0) {
