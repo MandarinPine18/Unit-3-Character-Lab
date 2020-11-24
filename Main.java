@@ -169,7 +169,7 @@ class Main {
     } catch (NumberFormatException e) {
       System.out.println("Try again, make sure if you use one of the health-changing functions, you type an integer in range [0, 100].");
     } catch (IllegalArgumentException e) {
-      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with an integer in range [0, 100] after a space.");
+      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with a space and an integer in range [0, 100].");
     }
   }
 
