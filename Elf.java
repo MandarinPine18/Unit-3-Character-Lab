@@ -4,6 +4,7 @@ class Elf extends GameCharacter {
     super.type = "Elf";
   }
 
+  // implemented separately due to direction specifics
   @Override
   public String howMuchHealth() {
     String status;
@@ -14,6 +15,6 @@ class Elf extends GameCharacter {
     } else {
       status = "low";
     }
-    return name + "'s health is " + status;
+    return name + "'s health is " + hp + ", which is " + status + ".";
   }
 }

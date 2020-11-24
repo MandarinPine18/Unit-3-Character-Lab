@@ -4,6 +4,7 @@ class Wizard extends GameCharacter {
     super.type = "Wizard";
   }
 
+  // implemented separately due to direction specifics
   @Override
   public String howMuchHealth() {
     String status;
@@ -14,6 +15,6 @@ class Wizard extends GameCharacter {
     } else {
       status = "low";
     }
-    return name + "'s health is " + status;
+    return name + "'s health is " + hp + ", which is " + status + ".";
   }
 }
