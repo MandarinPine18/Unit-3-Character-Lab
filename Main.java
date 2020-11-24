@@ -11,7 +11,20 @@ class Main {
 
   public static void main(String[] args) {
     //ask for the users name
-    String username = input("Please enter your name: ");
+    String username;
+    while (true) {
+      try {
+        username = input("Name: ");
+        if (username.equals("")) {
+          throw new IllegalArgumentException();
+        }
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.println("You must enter a name. Try again.");
+      }
+    }
+
+
     System.out.println("\nHello, " + username + ". Welcome to the character creator. Here, you can create any character you want! Let's go!");
     //ask which character they would like to create
     System.out.print("\nWhat character would you like to create? Options are:\n1. Elf\n2. Wizard\n3. Warrior\n(Enter 1, 2, or 3): ");
