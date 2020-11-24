@@ -126,8 +126,8 @@ class Main {
 
     // enter quasi-CLI interface
     System.out.println("Now you can control your character. Acceptable commands are as follows:\n" +
-            "\"heal {num}\" - heals character, {num} must be an integer in range [0, 100]\n" +
-            "\"hurt {num}\" - hurts character, {num} must be an integer in range [0, 100]\n" +
+            "\"heal {num}\" - increases character's health, {num} must be an integer in range [0, 100]\n" +
+            "\"hurt {num}\" - decreases character's health, {num} must be an integer in range [0, 100]\n" +
             "\"output\" - prints the details of the character\n" +
             "\"exit\" - exits the program\n");
     while (true) {
