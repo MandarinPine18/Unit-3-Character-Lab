@@ -146,12 +146,12 @@ class Main {
     try {
       String command = input("> ");
       int numValue;
-      if (command.startsWith("hurt")) {
+      if (command.startsWith("hurt ")) {
         numValue = Integer.parseInt(command.substring(5));
         checkNum(numValue);
         character.changeHealth(numValue * -1);
         System.out.println(character.howMuchHealth());
-      } else if (command.startsWith("heal")) {
+      } else if (command.startsWith("heal ")) {
         numValue = Integer.parseInt(command.substring(5));
         checkNum(numValue);
         character.changeHealth(numValue);
@@ -168,7 +168,7 @@ class Main {
     } catch (NumberFormatException e) {
       System.out.println("Try again, make sure if you use one of the health-changing functions, you type an integer in range [0, 100].");
     } catch (IllegalArgumentException e) {
-      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with in integer in range [0, 100].");
+      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with in integer in range [0, 100] after a space.");
     }
   }
 
