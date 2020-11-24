@@ -144,7 +144,7 @@ class Main {
 
   private static void command(GameCharacter character) {
     try {
-      String command = input(">");
+      String command = input("> ");
       int numValue;
       if (command.startsWith("hurt")) {
         numValue = Integer.parseInt(command.substring(5));
