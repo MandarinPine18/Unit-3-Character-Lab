@@ -20,7 +20,7 @@ class Main {
         }
         break;
       } catch (IllegalArgumentException e) {
-        System.out.println("You must enter a name. Try again.");
+        System.out.println("You must enter your name. Try again.");
       }
     }
 
